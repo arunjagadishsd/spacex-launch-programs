@@ -6,11 +6,15 @@
   margin: 0.5rem;
 }
 .card {
-  padding: 0 1rem;
+  padding: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
   width: 25%;
+}
+.center {
+  display: block;
+  margin: auto;
 }
 .flex-container {
   display: flex;

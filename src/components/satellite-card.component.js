@@ -3,7 +3,12 @@ import React from "react";
 const SatelliteCard = ({ satellite }) => {
   return (
     <div className="card">
-      <img src={satellite.links.mission_patch_small} alt="" />
+      <img
+        width="200"
+        className="center"
+        src={satellite.links.mission_patch_small}
+        alt=""
+      />
       <h3>
         {satellite.mission_name} #{satellite.flight_number}
       </h3>
