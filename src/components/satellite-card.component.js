@@ -2,7 +2,7 @@ import React from "react";
 
 const SatelliteCard = ({ satellite }) => {
   return (
-    <div className="card">
+    <div className="col-3 card">
       <img
         width="200"
         className="center"

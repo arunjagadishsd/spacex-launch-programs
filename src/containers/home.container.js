@@ -6,9 +6,17 @@ const Home = () => {
   const [satellites, setSatellites] = useState([]);
   const [filters, setFilters] = useState({
     launch_year: null,
-    launch_success: true,
+    launch_success: null,
     land_success: null,
   });
+  const onChangeFilters = (key, value) => {
+    console.log(value, filters[key]);
+    if (filters[key] === value) {
+      setFilters({ ...filters, [key]: null });
+    } else {
+      setFilters({ ...filters, [key]: value });
+    }
+  };
   useEffect(() => {
     const fetchSatellites = async () => {
       let url = "https://api.spaceXdata.com/v3/launches?limit=100";
@@ -26,8 +34,15 @@ const Home = () => {
   }, [filters]);
   return (
     <>
-      <Filter onChangeFilters={setFilters} />
-      <SatelliteList satellites={satellites} />
+      <h2>SpaceX Launch Programs</h2>
+      <div className="flex-container">
+        <div className="flex-2 mx-4">
+          <Filter onChangeFilters={onChangeFilters} filters={filters} />
+        </div>
+        <div className="flex-10">
+          <SatelliteList satellites={satellites} />
+        </div>
+      </div>
     </>
   );
 };
