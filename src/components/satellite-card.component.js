@@ -4,7 +4,7 @@ const SatelliteCard = ({ satellite }) => {
   return (
     <div className="col-3 card">
       <img
-        width="200"
+        width="150"
         className="center"
         src={satellite.links.mission_patch_small}
         alt=""

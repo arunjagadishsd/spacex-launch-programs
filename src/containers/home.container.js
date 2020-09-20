@@ -39,7 +39,7 @@ const Home = () => {
         <div className="flex-2 mx-4">
           <Filter onChangeFilters={onChangeFilters} filters={filters} />
         </div>
-        <div className="flex-10">
+        <div className="flex-9">
           <SatelliteList satellites={satellites} />
         </div>
       </div>

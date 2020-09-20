@@ -4,7 +4,7 @@ import YEARS from "./../constants/filter.constant";
 const Filter = ({ onChangeFilters, filters }) => {
   const BooleanButtons = ({ filter }) => {
     return (
-      <div className="flex-j-sb flex-container">
+      <div className="flex-j-sb flex-container-row">
         <button
           className={filters[filter] === true ? "btn active" : "btn"}
           onClick={() => {
@@ -34,7 +34,7 @@ const Filter = ({ onChangeFilters, filters }) => {
         <p>Launch Year</p>
         <hr />
       </div>
-      <div className="flex-j-sb flex-container">
+      <div className="flex-j-sb flex-container-row">
         {YEARS.map((year) => (
           <button
             key={year}
