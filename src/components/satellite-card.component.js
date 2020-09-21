@@ -1,7 +1,7 @@
 import React from "react";
 
 const SatelliteCard = ({ satellite }) => {
-  console.log("asdsd", satellite.rocket.first_stage.cores);
+  console.log("asdsd", satellite.rocket.first_stage.cores.length);
   return (
     <div className="col-3 card">
       <img
@@ -27,16 +27,26 @@ const SatelliteCard = ({ satellite }) => {
       <p>
         <strong> Successful Launch: </strong> {satellite.launch_success + ""}
       </p>
+      <div>
+        <p>
+          <strong> Successful Landing: </strong>
 
-      <strong> Successful Landing: </strong>
-      <ul>
-        {satellite.rocket.first_stage.cores.map((core) => (
-          <li key={core.core_serial}>
-            {" "}
-            Core {core.core_serial} : {core.land_success + ""}
-          </li>
-        ))}
-      </ul>
+          {satellite.rocket.first_stage.cores.length > 1 ? (
+            <ul>
+              {satellite.rocket.first_stage.cores.map((core) => (
+                <li key={core.core_serial}>
+                  {" "}
+                  Core {core.core_serial} : {core.land_success + ""}
+                </li>
+              ))}
+            </ul>
+          ) : satellite.rocket.first_stage.cores[0].land_success === null ? (
+            <span>No Data</span>
+          ) : (
+            satellite.rocket.first_stage.cores[0].land_success + ""
+          )}
+        </p>
+      </div>
     </div>
   );
 };
