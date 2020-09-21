@@ -31,20 +31,24 @@ const SatelliteCard = ({ satellite }) => {
         <p>
           <strong> Successful Landing: </strong>
 
-          {satellite.rocket.first_stage.cores.length > 1 ? (
-            <ul>
-              {satellite.rocket.first_stage.cores.map((core) => (
-                <li key={core.core_serial}>
-                  {" "}
-                  Core {core.core_serial} : {core.land_success + ""}
-                </li>
-              ))}
-            </ul>
-          ) : satellite.rocket.first_stage.cores[0].land_success === null ? (
-            <span>No Data</span>
-          ) : (
-            satellite.rocket.first_stage.cores[0].land_success + ""
-          )}
+          {
+            // Check the length of cores to print list or single launch_success
+            satellite.rocket.first_stage.cores.length > 1 ? (
+              <ul>
+                {satellite.rocket.first_stage.cores.map((core) => (
+                  <li key={core.core_serial}>
+                    {" "}
+                    Core {core.core_serial} : {core.land_success + ""}
+                  </li>
+                ))}
+              </ul>
+            ) : // Check if the land_success is null and print No Data
+            satellite.rocket.first_stage.cores[0].land_success === null ? (
+              <span>No Data</span>
+            ) : (
+              satellite.rocket.first_stage.cores[0].land_success + ""
+            )
+          }
         </p>
       </div>
     </div>
