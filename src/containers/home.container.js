@@ -43,6 +43,9 @@ const Home = () => {
           <SatelliteList satellites={satellites} />
         </div>
       </div>
+      <div style={{ textAlign: "center" }}>
+        <h2>Developed By Arun Jagadish</h2>
+      </div>
     </>
   );
 };
